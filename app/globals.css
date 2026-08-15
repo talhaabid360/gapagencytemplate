@@ -824,7 +824,7 @@ a { color: inherit; text-decoration: none; }
   .signal-item b { font-size: 16px; letter-spacing: .12em; }
   .intro-section { grid-template-columns: 1fr; gap: 24px; padding: 80px 20px; }
   .intro-section h2, .intro-section > p:last-child { grid-column: auto; }
-  .intro-section h2 { font-size: clamp(44px, 14vw, 62px); }
+  .intro-section h2 { font-size: clamp(44px, 14vw, 62px); transform: translateX(-.055em);}
   .services-section, .work-section, .process-section { padding: 80px 20px; }
   .section-heading-row { gap: 28px; }
   .section-heading-row h2 { font-size: clamp(44px, 13vw, 62px); }
