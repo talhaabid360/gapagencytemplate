@@ -643,13 +643,32 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: 54px minmax(140px, .8fr) 1.2fr;
   gap: clamp(18px, 4vw, 54px);
-  align-items: baseline;
+  align-items: start;
   border-bottom: 1px solid var(--line);
   padding: 38px 0 42px;
 }
-.process-step > span { color: var(--red-dark); font-size: 18px; font-weight: 900; line-height: 1; letter-spacing: .1em; }
-.process-step h3 { margin: 0; font-size: clamp(28px, 2.6vw, 42px); letter-spacing: -.04em; }
-.process-step p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.65; }
+.process-step > span {
+  padding-top: clamp(8px, .8vw, 13px);
+  color: var(--red-dark);
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: .1em;
+}
+
+.process-step h3 {
+  margin: 0;
+  font-size: clamp(28px, 2.6vw, 42px);
+  letter-spacing: -.04em;
+}
+
+.process-step p {
+  margin: 0;
+  padding-top: clamp(7px, .7vw, 12px);
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
 
 .about-section { display: grid; grid-template-columns: 1fr 1fr; }
 .about-panel { min-height: 680px; padding: clamp(44px, 7vw, 110px); }
@@ -723,18 +742,23 @@ a { color: inherit; text-decoration: none; }
 .site-footer > p { margin: 0; color: rgba(255,255,255,.5); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
 .site-footer > div { display: flex; align-items: center; justify-content: flex-end; gap: 24px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .site-footer a:not(.brand):hover { color: #ff5a61; }
-/* Keep related labels, headings and text on one exact left edge */
-.section-heading-row > div > *,
-.work-copy > *,
-.process-intro > *,
-.about-red > *,
-.about-copy > *,
-.biohack-wordmark > *,
-.featured-center > * {
-  margin-inline-start: 0;
-  padding-inline-start: 0;
-  text-indent: 0;
+
+/* Optical left alignment for different letter sizes */
+.section-heading-row h2,
+.work-copy h2,
+.process-intro h2 {
+  transform: translateX(-.055em);
 }
+
+.featured-center h3 {
+  transform: translateX(.075em);
+}
+
+.about-number {
+  transform: translateX(-.033em);
+}
+
+:focus-visible { outline: 3px solid #ff5a61; outline-offset: 4px; }
 :focus-visible { outline: 3px solid #ff5a61; outline-offset: 4px; }
 
 @media (min-width: 981px) {
@@ -817,7 +841,7 @@ a { color: inherit; text-decoration: none; }
   .featured-footer .button { width: 100%; }
   .process-section { gap: 54px; }
   .process-step { grid-template-columns: 42px 1fr; gap: 14px 18px; padding: 30px 0 34px; }
-  .process-step p { grid-column: 2; }
+  .process-step p { grid-column: 2; padding-top: 0;}
   .about-panel { min-height: 540px; padding: 64px 20px; }
   .about-number { font-size: 42vw; }
   .about-red p { font-size: clamp(38px, 11vw, 54px); }
