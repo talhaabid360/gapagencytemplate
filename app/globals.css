@@ -643,12 +643,12 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: 54px minmax(140px, .8fr) 1.2fr;
   gap: clamp(18px, 4vw, 54px);
-  align-items: start;
+  align-items: baseline;
   border-bottom: 1px solid var(--line);
   padding: 38px 0 42px;
 }
 .process-step > span { color: var(--red-dark); font-size: 18px; font-weight: 900; line-height: 1; letter-spacing: .1em; }
-.process-step h3 { margin: -4px 0 0; font-size: clamp(28px, 2.6vw, 42px); letter-spacing: -.04em; }
+.process-step h3 { margin: 0; font-size: clamp(28px, 2.6vw, 42px); letter-spacing: -.04em; }
 .process-step p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.65; }
 
 .about-section { display: grid; grid-template-columns: 1fr 1fr; }
@@ -723,7 +723,18 @@ a { color: inherit; text-decoration: none; }
 .site-footer > p { margin: 0; color: rgba(255,255,255,.5); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
 .site-footer > div { display: flex; align-items: center; justify-content: flex-end; gap: 24px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .site-footer a:not(.brand):hover { color: #ff5a61; }
-
+/* Keep related labels, headings and text on one exact left edge */
+.section-heading-row > div > *,
+.work-copy > *,
+.process-intro > *,
+.about-red > *,
+.about-copy > *,
+.biohack-wordmark > *,
+.featured-center > * {
+  margin-inline-start: 0;
+  padding-inline-start: 0;
+  text-indent: 0;
+}
 :focus-visible { outline: 3px solid #ff5a61; outline-offset: 4px; }
 
 @media (min-width: 981px) {
@@ -741,16 +752,6 @@ a { color: inherit; text-decoration: none; }
     letter-spacing: 0.14em;
   }
 }
-
-/* Your existing code starts here */
-@media (max-width: 980px) {
-  .site-header { grid-template-columns: 1fr auto; }
-  .desktop-nav { display: none; }
-  .hero { min-height: auto; grid-template-columns: 1fr; }
-  /* Remaining existing styles */
-}
-
-
 
 @media (max-width: 980px) {
   .site-header { grid-template-columns: 1fr auto; }
