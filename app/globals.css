@@ -921,7 +921,7 @@ a { color: inherit; text-decoration: none; }
   inset: 0;
   pointer-events: none;
   transform: scaleX(0);
-  animation: about-swap 14s cubic-bezier(.77, 0, .18, 1) infinite;
+  animation: about-swap 8s cubic-bezier(.77, 0, .18, 1) infinite;
 }
 
 .about-red::before {
