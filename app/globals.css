@@ -388,7 +388,7 @@ a { color: inherit; text-decoration: none; }
 .signal-item { display: inline-flex; align-items: center; gap: clamp(28px, 4vw, 66px); }
 .signal-item b {
   font-family: "Arial Black", Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 900;
   letter-spacing: .17em;
   text-transform: uppercase;
@@ -763,7 +763,7 @@ a { color: inherit; text-decoration: none; }
   .signal-track { animation-duration: 18s; }
   .signal-group { gap: 26px; padding: 20px 26px 18px; }
   .signal-item { gap: 26px; }
-  .signal-item b { font-size: 11px; letter-spacing: .15em; }
+  .signal-item b { font-size: 16px; letter-spacing: .12em; }
   .intro-section { grid-template-columns: 1fr; gap: 24px; padding: 80px 20px; }
   .intro-section h2, .intro-section > p:last-child { grid-column: auto; }
   .intro-section h2 { font-size: clamp(44px, 14vw, 62px); }
