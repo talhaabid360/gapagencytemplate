@@ -351,13 +351,6 @@ export default function Home() {
       </section>
 
       <footer className="site-footer">
-        <a className="footer-logo-link" href="#top" aria-label="Back to top">
-          <img
-            className="footer-logo-image"
-            src="/gaps-command-your-brand.png"
-            alt="Gaps Agency Command Your Brand"
-          />
-        </a>
         <p>Podcast strategy, production, and growth.</p>
         <div>
           <a href="https://www.instagram.com/realsamcarvajal/" target="_blank" rel="noreferrer">Instagram</a>
