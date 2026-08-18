@@ -351,7 +351,6 @@ export default function Home() {
       </section>
 
       <footer className="site-footer">
-        <p>Podcast strategy, production, and growth.</p>
         <div>
           <a href="https://www.instagram.com/realsamcarvajal/" target="_blank" rel="noreferrer">Instagram</a>
           <span>© 2026 Gaps Agency</span>
