@@ -777,20 +777,25 @@ a { color: inherit; text-decoration: none; }
 .footer-logo-link {
   display: block;
   width: 110px;
-  aspect-ratio: 1;
+  height: 110px; /* Explicit height ensures it stays a circle */
+  min-width: 110px; /* Prevents the CSS grid from squishing it */
   overflow: hidden;
   border-radius: 50%;
-  background: var(--white);
+  background: transparent; /* Removes the white bars on the sides */
 }
 
 .footer-logo-image {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Ensures your entire logo is visible exactly as is */
   border-radius: 50%;
-  transform: scale(1.28);
+  transform: scale(1);
   transition: transform 220ms ease;
+}
+
+.footer-logo-link:hover .footer-logo-image {
+  transform: scale(1.34);
 }
 
 .footer-logo-link:hover .footer-logo-image {
