@@ -496,7 +496,7 @@ a { color: inherit; text-decoration: none; }
   padding: clamp(26px, 3vw, 42px);
   transition: background-color 220ms ease, color 220ms ease;
 }
-.service-card:hover { background: var(--ink); color: var(--white); }
+/* .service-card:hover { background: var(--ink); color: var(--white); } */
 .service-topline {
   display: flex;
   align-items: center;
@@ -506,7 +506,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 900;
   letter-spacing: .15em;
 }
-.service-card:hover .service-topline { color: #ff5a61; }
+/* .service-card:hover .service-topline { color: #ff5a61; } */
 .service-topline > span {
   font-size: 18px;
   font-weight: 900;
@@ -526,7 +526,40 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px;
   line-height: 1.65;
 }
-.service-card:hover p { color: rgba(255,255,255,.68); }
+
+/* Desktop hover */
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover {
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  .service-card:hover .service-topline {
+    color: #ff5a61;
+  }
+
+  .service-card:hover p {
+    color: rgba(255,255,255,.68);
+  }
+}
+
+/* Mobile scroll */
+@media (max-width: 640px) and (hover: none) {
+  .service-card.is-mobile-active {
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  .service-card.is-mobile-active .service-topline {
+    color: #ff5a61;
+  }
+
+  .service-card.is-mobile-active p {
+    color: rgba(255,255,255,.68);
+  }
+}
+
+/* .service-card:hover p { color: rgba(255,255,255,.68); } */
 
 .work-section {
   display: grid;
@@ -739,10 +772,76 @@ a { color: inherit; text-decoration: none; }
   padding: 40px clamp(20px, 4vw, 64px);
 }
 .footer-brand { color: var(--white); }
+
+/* Paste logo CSS here */
+.footer-logo-link {
+  display: block;
+  width: 110px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--white);
+}
+
+.footer-logo-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transform: scale(1.28);
+  transition: transform 220ms ease;
+}
+
+.footer-logo-link:hover .footer-logo-image {
+  transform: scale(1.34);
+}
 .site-footer > p { margin: 0; color: rgba(255,255,255,.5); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
 .site-footer > div { display: flex; align-items: center; justify-content: flex-end; gap: 24px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .site-footer a:not(.brand):hover { color: #ff5a61; }
+/* Animated results counter */
+.results-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: var(--ink);
+  color: var(--white);
+}
 
+.result-item {
+  position: relative;
+  display: flex;
+  min-height: 250px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 42px 30px;
+  text-align: center;
+}
+
+.result-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 18%;
+  right: 0;
+  bottom: 18%;
+  width: 1px;
+  background: rgba(255, 255, 255, .45);
+}
+
+.result-number {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(76px, 8vw, 126px);
+  font-weight: 400;
+  line-height: .85;
+  letter-spacing: -.055em;
+}
+
+.result-item p {
+  margin: 26px 0 0;
+  color: rgba(255, 255, 255, .88);
+  font-size: clamp(16px, 1.6vw, 24px);
+  line-height: 1.3;
+}
 /* Optical left alignment for different letter sizes */
 .section-heading-row h2,
 .work-copy h2,
@@ -845,6 +944,7 @@ a { color: inherit; text-decoration: none; }
   gap: 14px 18px;
   align-items: start;
   padding: 30px 0 34px;
+
 }
 
 .process-step > span {
@@ -881,6 +981,28 @@ a { color: inherit; text-decoration: none; }
   .contact-section h2 { margin-block: 28px 48px; font-size: clamp(50px, 15vw, 72px); }
   .site-footer { display: flex; align-items: flex-start; flex-direction: column; gap: 30px; padding: 42px 20px; }
   .site-footer > div { width: 100%; justify-content: space-between; gap: 18px; }
+  .results-strip {
+  grid-template-columns: 1fr;
+}
+
+.result-item {
+  min-height: 220px;
+  padding: 44px 20px;
+}
+
+.result-item:not(:last-child)::after {
+  top: auto;
+  right: 20px;
+  bottom: 0;
+  left: 20px;
+  width: auto;
+  height: 1px;
+}
+
+.result-number {
+  font-size: clamp(82px, 27vw, 118px);
+}
+  .footer-logo-link { width: 92px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
