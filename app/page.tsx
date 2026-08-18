@@ -205,21 +205,21 @@ export default function Home() {
           <span className="result-number" data-target="38">
             0+
           </span>
-          <p>branded shows launched</p>
+          <p>Branded Shows Launched</p>
         </div>
 
         <div className="result-item">
           <span className="result-number" data-target="25">
             0+
           </span>
-          <p>active distribution channels</p>
+          <p>Active Distribution Channels</p>
         </div>
 
         <div className="result-item">
           <span className="result-number" data-target="545">
             0+
           </span>
-          <p>episodes produced</p>
+          <p>Episodes Produced</p>
         </div>
       </section>
       <section className="services-section" aria-labelledby="services-heading">
