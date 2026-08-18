@@ -226,7 +226,7 @@ export default function Home() {
         <div className="section-heading-row">
           <div>
             <p className="section-kicker">End-to-end capabilities</p>
-            <h2 id="services-heading">Everything Your Show Needs To Lead.</h2>
+            <h2 id="services-heading">Everything Your Show Needs to Lead.</h2>
           </div>
           <p>
             One strategic partner. Every stage covered. A show that sounds,
@@ -299,7 +299,7 @@ export default function Home() {
       <section className="process-section" id="process" aria-labelledby="process-heading">
         <div className="process-intro">
           <p className="section-kicker">How we work</p>
-          <h2 id="process-heading">From Raw Idea To Authority Engine.</h2>
+          <h2 id="process-heading">From Raw Idea to Authority Engine.</h2>
         </div>
         <div className="process-list">
           {[
@@ -320,11 +320,11 @@ export default function Home() {
       <section className="about-section" aria-labelledby="about-heading">
         <div className="about-panel about-red">
           <span className="about-number">G/A</span>
-          <p>Brand Authority is Built One Meaningful Conversation At a Time.</p>
+          <p>Brand Authority is Built One Meaningful Conversation at a Time.</p>
         </div>
         <div className="about-panel about-copy">
           <p className="section-kicker light">About Gaps Agency</p>
-          <h2 id="about-heading">The Team Behind The Conversation.</h2>
+          <h2 id="about-heading">The Team Behind the Conversation.</h2>
           <p>
             Led by branding and monetization expert Sam Carvajal, Gaps Agency
             brings together strategy, production, and growth to help ambitious
@@ -339,7 +339,7 @@ export default function Home() {
 
       <section className="contact-section" id="contact" aria-labelledby="contact-heading">
         <p className="section-kicker">Start a conversation</p>
-        <h2 id="contact-heading">Your Audience is Ready.<br />Let&apos;s Close The Gap.</h2>
+        <h2 id="contact-heading">Your Audience is Ready.<br />Let&apos;s Close the Gap.</h2>
         <a
           className="contact-link"
           href="https://www.instagram.com/realsamcarvajal/"
