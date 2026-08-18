@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+
 const ArrowUpRight = () => (
   <svg aria-hidden="true" viewBox="0 0 24 24" className="arrow-icon">
     <path d="M7 17 17 7M8 7h9v9" />
@@ -20,6 +24,83 @@ const capabilities = [
 ];
 
 export default function Home() {
+  useEffect(() => {
+    if (!window.matchMedia("(max-width: 640px) and (hover: none)").matches) {
+      return;
+    }
+
+    const cards = document.querySelectorAll(".service-card");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle(
+            "is-mobile-active",
+            entry.isIntersecting
+          );
+        });
+      },
+      {
+        rootMargin: "-32% 0px -38% 0px",
+        threshold: 0.01,
+      }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const counters =
+      document.querySelectorAll<HTMLElement>(".result-number");
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      counters.forEach((counter) => {
+        counter.textContent = `${counter.dataset.target}+`;
+      });
+
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const counter = entry.target as HTMLElement;
+          const target = Number(counter.dataset.target);
+          const duration = 1500;
+          const startTime = performance.now();
+
+          const updateCounter = (currentTime: number) => {
+            const progress = Math.min(
+              (currentTime - startTime) / duration,
+              1
+            );
+
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+            counter.textContent =
+              `${Math.round(target * easedProgress)}+`;
+
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            }
+          };
+
+          requestAnimationFrame(updateCounter);
+          observer.unobserve(counter);
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main>
       <div className="topline">
@@ -50,8 +131,8 @@ export default function Home() {
             <span>Full-service podcast agency</span>
           </div>
           <h1>
-            We turn your
-            <span>expertise into influence.</span>
+            We Turn Your
+            <span>Expertise into Influence.</span>
           </h1>
           <p className="hero-text">
             Gaps Agency helps founders, brands, and industry leaders create
@@ -111,20 +192,41 @@ export default function Home() {
       </section>
 
       <section className="intro-section" id="services">
-        <p className="section-kicker">What we solve</p>
-        <h2>Great ideas get lost in the gaps.</h2>
+        <p className="section-kicker">What We Solve</p>
+        <h2>Great Ideas Get Lost in the Gaps.</h2>
         <p>
           Between the first concept and the audience it deserves, there are a
           hundred details that can slow a show down. We close those gaps with
           one focused team from strategy through growth.
         </p>
       </section>
+      <section className="results-strip" aria-label="Agency results">
+        <div className="result-item">
+          <span className="result-number" data-target="38">
+            0+
+          </span>
+          <p>branded shows launched</p>
+        </div>
 
+        <div className="result-item">
+          <span className="result-number" data-target="25">
+            0+
+          </span>
+          <p>active distribution channels</p>
+        </div>
+
+        <div className="result-item">
+          <span className="result-number" data-target="545">
+            0+
+          </span>
+          <p>episodes produced</p>
+        </div>
+      </section>
       <section className="services-section" aria-labelledby="services-heading">
         <div className="section-heading-row">
           <div>
             <p className="section-kicker">End-to-end capabilities</p>
-            <h2 id="services-heading">Everything your show needs to lead.</h2>
+            <h2 id="services-heading">Everything Your Show Needs To Lead.</h2>
           </div>
           <p>
             One strategic partner. Every stage covered. A show that sounds,
@@ -156,7 +258,7 @@ export default function Home() {
       <section className="work-section" id="work" aria-labelledby="work-heading">
         <div className="work-copy">
           <p className="section-kicker light">Selected media experience</p>
-          <h2 id="work-heading">Ideas with the power to shape a category.</h2>
+          <h2 id="work-heading">Ideas With the Power to Shape a Category.</h2>
           <p>
             Our experience extends beyond the episode. We understand how
             podcasts, editorial media, brand storytelling, and distribution
@@ -174,7 +276,7 @@ export default function Home() {
           </div>
           <div className="featured-center">
             <p>Wellness / Biohacking / Longevity</p>
-            <h3>The future of health, brought directly to the audience.</h3>
+            <h3>The Future of Health, Brought Directly to the Audience.</h3>
           </div>
           <div className="featured-footer">
             <p>
@@ -197,7 +299,7 @@ export default function Home() {
       <section className="process-section" id="process" aria-labelledby="process-heading">
         <div className="process-intro">
           <p className="section-kicker">How we work</p>
-          <h2 id="process-heading">From raw idea to authority engine.</h2>
+          <h2 id="process-heading">From Raw Idea To Authority Engine.</h2>
         </div>
         <div className="process-list">
           {[
@@ -218,11 +320,11 @@ export default function Home() {
       <section className="about-section" aria-labelledby="about-heading">
         <div className="about-panel about-red">
           <span className="about-number">G/A</span>
-          <p>Brand authority is built one meaningful conversation at a time.</p>
+          <p>Brand Authority is Built One Meaningful Conversation At a Time.</p>
         </div>
         <div className="about-panel about-copy">
           <p className="section-kicker light">About Gaps Agency</p>
-          <h2 id="about-heading">The team behind the conversation.</h2>
+          <h2 id="about-heading">The Team Behind The Conversation.</h2>
           <p>
             Led by branding and monetization expert Sam Carvajal, Gaps Agency
             brings together strategy, production, and growth to help ambitious
@@ -237,7 +339,7 @@ export default function Home() {
 
       <section className="contact-section" id="contact" aria-labelledby="contact-heading">
         <p className="section-kicker">Start a conversation</p>
-        <h2 id="contact-heading">Your audience is ready.<br />Let&apos;s close the gap.</h2>
+        <h2 id="contact-heading">Your Audience is Ready.<br />Let&apos;s Close The Gap.</h2>
         <a
           className="contact-link"
           href="https://www.instagram.com/realsamcarvajal/"
@@ -249,9 +351,12 @@ export default function Home() {
       </section>
 
       <footer className="site-footer">
-        <a className="brand footer-brand" href="#top" aria-label="Back to top">
-          <span className="brand-main">GAPS</span>
-          <span className="brand-sub">AGENCY</span>
+        <a className="footer-logo-link" href="#top" aria-label="Back to top">
+          <img
+            className="footer-logo-image"
+            src="/gaps-command-your-brand.png"
+            alt="Gaps Agency Command Your Brand"
+          />
         </a>
         <p>Podcast strategy, production, and growth.</p>
         <div>
